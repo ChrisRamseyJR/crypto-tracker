@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { SingleCoin } from "../config/api";
 import { numberWithCommas } from "../components/CoinsTable";
-import CryptoContext, { CryptoState } from "../CryptoContext";
+import { CryptoState } from "../CryptoContext";
 
 const CoinPage = () => {
   const { id } = useParams();

@@ -17,9 +17,8 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { CoinList } from "../config/api";
-import CryptoContext, { CryptoState } from "../CryptoContext";
-import { Classnames } from "react-alice-carousel";
-import { Navigate, useNavigate } from "react-router-dom";
+import { CryptoState } from "../CryptoContext";
+import { useNavigate } from "react-router-dom";
 import Pagination from "@material-ui/lab/Pagination";
 
 export function numberWithCommas(x) {
