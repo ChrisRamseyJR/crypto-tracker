@@ -1,19 +1,33 @@
-import axios from 'axios';
-import { Paper, Container, createTheme, LinearProgress, makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, ThemeProvider, Typography } from '@material-ui/core';
-import React, { useEffect, useState } from 'react'
-import { CoinList } from '../config/api';
-import CryptoContext, {CryptoState} from '../CryptoContext';
-import { Classnames } from 'react-alice-carousel';
+import axios from "axios";
+import {
+  Paper,
+  Container,
+  createTheme,
+  LinearProgress,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+  ThemeProvider,
+  Typography,
+} from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { CoinList } from "../config/api";
+import CryptoContext, { CryptoState } from "../CryptoContext";
+import { Classnames } from "react-alice-carousel";
 import { Navigate, useNavigate } from "react-router-dom";
-import Pagination from '@material-ui/lab/Pagination'
+import Pagination from "@material-ui/lab/Pagination";
 
 export function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 const CoinsTable = () => {
-    
-    const [coins, setCoins] = useState([]);
+  const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
@@ -71,13 +85,12 @@ const CoinsTable = () => {
     );
   };
 
-    return (
-        <ThemeProvider theme={darkTheme}>
+  return (
+    <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
-          style={{ margin: 18, padding: 15, fontFamily: "Roboto" }}
-        >
+          style={{ margin: 18, padding: 15, fontFamily: "Roboto" }}>
           Cryptocurrency Prices by Market Cap
         </Typography>
         <TextField
@@ -101,8 +114,7 @@ const CoinsTable = () => {
                         fontFamily: "Roboto",
                       }}
                       key={head}
-                      align={head === "Coin" ? "" : "right"}
-                    >
+                      align={head === "Coin" ? "" : "right"}>
                       {head}
                     </TableCell>
                   ))}
@@ -118,16 +130,14 @@ const CoinsTable = () => {
                       <TableRow
                         onClick={() => history(`/coins/${row.id}`)}
                         className={classes.row}
-                        key={row.name}
-                      >
+                        key={row.name}>
                         <TableCell
                           component="th"
                           scope="row"
                           style={{
                             display: "flex",
                             gap: 15,
-                          }}
-                        >
+                          }}>
                           <img
                             src={row?.image}
                             alt={row.name}
@@ -135,14 +145,15 @@ const CoinsTable = () => {
                             style={{ marginBottom: 10 }}
                           />
                           <div
-                            style={{ display: "flex", flexDirection: "column" }}
-                          >
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                            }}>
                             <span
                               style={{
                                 textTransform: "uppercase",
                                 fontSize: 22,
-                              }}
-                            >
+                              }}>
                               {row.symbol}
                             </span>
                             <span style={{ color: "darkgrey" }}>
@@ -159,8 +170,7 @@ const CoinsTable = () => {
                           style={{
                             color: profit > 0 ? "rgb(14, 203, 129)" : "red",
                             fontWeight: 500,
-                          }}
-                        >
+                          }}>
                           {profit && "+"}
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
@@ -196,8 +206,7 @@ const CoinsTable = () => {
         />
       </Container>
     </ThemeProvider>
-    
-  )
-}
+  );
+};
 
-export default CoinsTable
+export default CoinsTable;
