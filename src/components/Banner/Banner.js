@@ -4,7 +4,7 @@ import Carousel from './Carousel';
 
 const useStyles = makeStyles((theme) => ({
   banner: {
-    backgroundImage: "url(./banner2.jpeg)",
+    background: "linear-gradient(to left, rgba(0,0,0,.95), rgba(0,0,0,.85)), url(./aktech-bg.jpeg)",
   },
   bannerContent: {
     height: 400,
@@ -34,14 +34,15 @@ const Banner = () => {
             fontWeight: "bold",
             marginBottom: "15",
             fontFamily: "Roboto",
+            color:"lightblue",
           }}
           >
-            Crypto Tracker
+            Crypto Ranking
           </Typography>
           <Typography
             variant="subtitle2"
             style={{
-              color:"darkgrey",
+              color:"lightgrey",
               textTransform: "capitalize",
               fontFamily:"Roboto",
             }}

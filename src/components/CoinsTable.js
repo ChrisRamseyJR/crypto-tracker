@@ -32,6 +32,7 @@ const CoinsTable = () => {
     pagination: {
       "& .MuiPaginationItem-root": {
         color: "lightblue",
+        fontWeight: "800",
       },
     },
   });
@@ -75,7 +76,7 @@ const CoinsTable = () => {
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
-          style={{ margin: 18, fontFamily: "Roboto" }}
+          style={{ margin: 18, padding: 15, fontFamily: "Roboto" }}
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
@@ -90,7 +91,7 @@ const CoinsTable = () => {
             <LinearProgress style={{ backgroundColor: "lightblue" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "blue" }}>
+              <TableHead style={{ backgroundColor: "lightslategray" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
@@ -115,7 +116,7 @@ const CoinsTable = () => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
-                        onClick={() => history.push(`/coins/${row.id}`)}
+                        onClick={() => history(`/coins/${row.id}`)}
                         className={classes.row}
                         key={row.name}
                       >
@@ -190,7 +191,7 @@ const CoinsTable = () => {
           classes={{ ul: classes.pagination }}
           onChange={(_, value) => {
             setPage(value);
-            window.scroll(0, 450);
+            window.scroll(0, 475);
           }}
         />
       </Container>
